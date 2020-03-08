@@ -1,29 +1,25 @@
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.5'
-}
-
-
 project.subprojects {
     if (it.name.startsWith('Sample')) {
         ext{
             aspectjPluginVersion='1.0.7'
+            kotlin_version = '1.3.70'
         }
 
         buildscript {
             repositories {
-//                mavenLocal()
+                google()
                 jcenter()
             }
             dependencies {
-                classpath 'com.android.tools.build:gradle:1.2.2'
+                classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+                classpath 'com.android.tools.build:gradle:3.6.1'
+                classpath "me.leolin:android-aspectj-plugin:1.0.7"
             }
         }
         repositories {
-//            mavenLocal()
+            google()
             jcenter()
         }
 
     }
-
-
 }

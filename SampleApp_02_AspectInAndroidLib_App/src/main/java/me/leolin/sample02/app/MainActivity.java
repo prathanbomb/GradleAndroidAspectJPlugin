@@ -1,12 +1,14 @@
 package me.leolin.sample02.app;
 
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import me.leolin.sample02.lib.MyService;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,7 +17,7 @@ public class MainActivity extends ActionBarActivity {
 
         MyService myService = new MyService();
 
-        TextView textView = (TextView) findViewById(R.id.textView);
+        TextView textView = findViewById(R.id.textView);
         textView.setText(myService.getHelloString());
     }
 

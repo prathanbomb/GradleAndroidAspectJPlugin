@@ -1,36 +1,24 @@
-buildscript {
-    dependencies {
-        classpath "me.leolin:android-aspectj-plugin:${aspectjPluginVersion}"
-    }
-}
-
-
-
-
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 apply plugin: 'me.leolin.gradle-android-aspectj'
 
-
-
-apply plugin: 'com.android.application'
-
-
 android {
-    compileSdkVersion 22
-    buildToolsVersion "22.0.1"
+    compileSdkVersion 29
+    buildToolsVersion '29.0.3'
 
     defaultConfig {
         applicationId "me.leolin.sample.normal"
         minSdkVersion 15
-        targetSdkVersion 22
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_6
-        targetCompatibility JavaVersion.VERSION_1_6
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
     buildTypes {
         release {
@@ -53,18 +41,15 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:22.2.0'
-    androidTestCompile 'junit:junit:4.12'
-    androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2'
-    androidTestCompile 'com.android.support.test:runner:0.3'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    androidTestImplementation 'junit:junit:4.13'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    implementation "androidx.core:core-ktx:1.2.0"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
-//    testCompile 'junit:junit:4.12'
-//    testCompile "org.mockito:mockito-core:1.9.5"
-//    testCompile 'com.squareup:fest-android:1.0.8'
-//    testCompile('org.robolectric:robolectric:3.0') {
-//        exclude group: 'commons-logging', module: 'commons-logging'
-//        exclude group: 'org.apache.httpcomponents', module: 'httpclient'
-//    }
-
-
+    implementation 'com.blankj:utilcodex:1.26.0'
+}
+repositories {
+    mavenCentral()
 }

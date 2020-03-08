@@ -1,9 +1,13 @@
 package me.leolin.sample.normal;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 
+/**
+ * @author supitsara
+ */
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -12,4 +16,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
 }

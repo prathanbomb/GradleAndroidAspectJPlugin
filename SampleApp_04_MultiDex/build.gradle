@@ -8,12 +8,14 @@ buildscript {
 
 
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
 apply plugin: 'me.leolin.gradle-android-aspectj'
 
 
 android {
-    compileSdkVersion 22
-    buildToolsVersion "22.0.1"
+    compileSdkVersion 29
+    buildToolsVersion '29.0.3'
 
     defaultConfig {
         applicationId "me.leolin.sample04.app"
@@ -22,12 +24,12 @@ android {
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_6
-        targetCompatibility JavaVersion.VERSION_1_6
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
     packagingOptions {
         exclude 'LICENSE.txt'
@@ -44,28 +46,33 @@ android {
 
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:22.2.0'
-    compile 'com.android.support:multidex:1.0.0'
-    compile 'org.springframework.android:spring-android-rest-template:1.0.1.RELEASE'
-    compile 'commons-io:commons-io:2.4'
-    compile 'commons-codec:commons-codec:1.10'
-    compile 'commons-beanutils:commons-beanutils:1.9.2'
-    compile 'commons-collections:commons-collections:3.2.1'
-    compile 'org.apache.commons:commons-compress:1.9'
-    compile 'commons-validator:commons-validator:1.4.1'
-    compile 'org.apache.commons:commons-math3:3.5'
-    compile 'commons-pool:commons-pool:1.6'
-    compile 'com.facebook.android:facebook-android-sdk:4.2.0'
-    compile 'com.google.guava:guava:18.0'
-    compile 'com.fasterxml.jackson.core:jackson-databind:2.5.3'
-    compile 'com.google.code.gson:gson:2.3.1'
-    compile 'org.roboguice:roboguice:3.0.1'
-    compile 'org.apache.commons:commons-lang3:3.4'
-    compile 'com.squareup.retrofit:retrofit:1.9.0'
-    compile 'com.squareup.okhttp:okhttp:2.4.0'
-    compile 'com.squareup.okhttp:okhttp-urlconnection:2.4.0'
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'androidx.multidex:multidex:2.0.0'
+    implementation 'org.springframework.android:spring-android-rest-template:1.0.1.RELEASE'
+    implementation 'commons-io:commons-io:2.4'
+    implementation 'commons-codec:commons-codec:1.10'
+    implementation 'commons-beanutils:commons-beanutils:1.9.2'
+    implementation 'commons-collections:commons-collections:3.2.1'
+    implementation 'org.apache.commons:commons-compress:1.9'
+    implementation 'commons-validator:commons-validator:1.4.1'
+    implementation 'org.apache.commons:commons-math3:3.5'
+    implementation 'commons-pool:commons-pool:1.6'
+    implementation 'com.facebook.android:facebook-android-sdk:4.2.0'
+    implementation 'com.google.guava:guava:18.0'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.5.3'
+    implementation 'com.google.code.gson:gson:2.3.1'
+    implementation 'org.roboguice:roboguice:3.0.1'
+    implementation 'org.apache.commons:commons-lang3:3.4'
+    implementation 'com.squareup.retrofit:retrofit:1.9.0'
+    implementation 'com.squareup.okhttp:okhttp:2.4.0'
+    implementation 'com.squareup.okhttp:okhttp-urlconnection:2.4.0'
 
-    androidTestCompile 'junit:junit:4.12'
-    androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2'
-    androidTestCompile 'com.android.support.test:runner:0.3'
+    androidTestImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    implementation "androidx.core:core-ktx:+"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+repositories {
+    mavenCentral()
 }
