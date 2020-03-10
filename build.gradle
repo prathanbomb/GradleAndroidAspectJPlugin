@@ -1,6 +1,6 @@
 project.subprojects {
     if (it.name.startsWith('Sample')) {
-        ext{
+        ext {
             aspectjPluginVersion='1.0.7'
             kotlin_version = '1.3.70'
         }
@@ -9,16 +9,19 @@ project.subprojects {
             repositories {
                 google()
                 jcenter()
+                mavenCentral()
             }
             dependencies {
                 classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-                classpath 'com.android.tools.build:gradle:3.6.1'
+                classpath 'com.android.tools.build:gradle:3.5.3'
                 classpath "me.leolin:android-aspectj-plugin:1.0.7"
+                classpath 'com.hujiang.aspectjx:gradle-android-plugin-aspectjx:2.0.4'
             }
         }
         repositories {
             google()
             jcenter()
+            mavenCentral()
         }
 
     }
